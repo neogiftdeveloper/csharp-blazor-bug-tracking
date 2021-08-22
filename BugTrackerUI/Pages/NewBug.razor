@@ -2,7 +2,7 @@
 
 <h3>Add New Bug</h3>
 
-<EditForm Model="AddBug">
+<EditForm Model="AddBug" OnValidSubmit="HandleValidSubmit">
 
     <InputText @bind-Value="@AddBug.Title" placeholder="Enter Title"/>
 
@@ -15,5 +15,19 @@
 </EditForm>
 
 @code{
+    [Inject]
+    public IBugService BugService { get; set; }
+
+    [Inject]
+
+    public NavigationManager NavService { get; set; }
+
     public Bug AddBug { get; set; } = new Bug();
+
+    protected void HandleValidSubmit()
+    {
+        BugService.AddBug(AddBug);
+
+        NavService.NavigateTo("");
+    }
 } 
