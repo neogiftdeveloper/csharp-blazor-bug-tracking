@@ -4,11 +4,14 @@
 
 <EditForm Model="AddBug" OnValidSubmit="HandleValidSubmit">
 
-    <InputText @bind-Value="@AddBug.Title" placeholder="Enter Title"/>
+    <DataAnnotationsValidator />
+    <ValidationSummary />
 
-    <InputText @bind-Value="@AddBug.Description" placeholder="Enter Description"/>
+    <InputText @bind-Value="@AddBug.Title" placeholder="Enter Title" />
 
-    <InputText @bind-Value="@AddBug.Priority" placeholder="Enter Priority"/>
+    <InputText @bind-Value="@AddBug.Description" placeholder="Enter Description" />
+
+    <InputText @bind-Value="@AddBug.Priority" placeholder="Enter Priority" />
 
     <button type="submit">Add Bug</button>
 
